@@ -15,3 +15,10 @@ Select important features.
 Train machine learning models for classification.
 
 Evaluate model accuracy using standard metrics.
+
+````python
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline
+````
