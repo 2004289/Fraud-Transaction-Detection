@@ -16,7 +16,7 @@ Train machine learning models for classification.
 
 Evaluate model accuracy using standard metrics.
 
-# [1] Importing Required Libraries
+## [1] Importing Required Libraries
 ````python
 import numpy as np
 import pandas as pd
@@ -29,41 +29,41 @@ from sklearn.preprocessing import LabelEncoder
 ````python
 transaction_data = pd.read_csv("C:/Users/Asus/Downloads/Fraud (1).csv")
 ````
-# [3]: Preview the entire dataset (you might want to limit this for performance)
+## [3]: Preview the entire dataset (you might want to limit this for performance)
 ````python
 print(transaction_data)
 ````
 
-# [4]: Shape of the dataset
+## [4]: Shape of the dataset
 ````python
 print("Dataset Shape:", transaction_data.shape)
 ````
 
-# [5]: First 10 rows
+## [5]: First 10 rows
 ````python
 print(transaction_data.head(10))
 ````
 
-# [6]: Last 10 rows
+## [6]: Last 10 rows
 ````python
 print(transaction_data.tail(10))
 ````
 ## ANALYSING THE DATA
-# [7]: Dataset information
+## [7]: Dataset information
 ````python
 transaction_data.info()
 ````
 
-# [8]: Check for missing values
+## [8]: Check for missing values
 ````python
 print("Any Null Values? ", transaction_data.isnull().values.any())
 ````
 
-# [9]: Count of fraud and legit transactions
+## [9]: Count of fraud and legit transactions
 ````python
 print(transaction_data['isFraud'].value_counts())
 ````
-# [10]: Calculate % of legit and fraud transactions
+## [10]: Calculate % of legit and fraud transactions
 ````python
 legit = len(transaction_data[transaction_data.isFraud == 0])
 fraud = len(transaction_data[transaction_data.isFraud == 1])
@@ -76,7 +76,7 @@ print("Percentage of Legit transactions: {:.4f} %".format(legit_transaction_perc
 print("Percentage of Fraud transactions: {:.4f} %".format(fraud_transaction_percentage))
 ````
 ## DATA VISUALISATION
-# [12]: Visualization of transaction classes
+## [12]: Visualization of transaction classes
 ````python
 plt.figure(figsize=(6, 6))
 labels = ["Legit_Transactions", "Fraud_Transaction"]
@@ -124,7 +124,7 @@ x['newbalanceDest'],axis=1)
 new_dataset['name'] = new_dataset.apply(lambda x: x['nameOrig'] +␣
 x['nameDest'],axis=1)
 ````
-# dropping columns
+## dropping columns
 ````python
 new_dataset = new_dataset.
 drop(['oldbalanceOrg','newbalanceOrig','oldbalanceDest','newbalanceDest','nameOrig','nameDest'],calc_vif(new_dataset)
@@ -181,13 +181,13 @@ classification_report_dt = classification_report(Y_test, Y_pred_dt)
 print("Classification Report for Decision Tree:")
 print(classification_report_dt)
 ````
-# Random Forest
+## Random Forest
 ````python
 classification_report_rf = classification_report(Y_test, Y_pred_rf)
 print("Classification Report for Random Forest:")
 print(classification_report_rf)
 ````
-# Logistic Regression
+## Logistic Regression
 ````python
 classification_report_lr = classification_report(Y_test, Y_pred_lr)
 print("Classification Report for Logistic Regression:")
