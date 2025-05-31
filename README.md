@@ -25,7 +25,7 @@ import matplotlib.pyplot as plt
 from sklearn.preprocessing import LabelEncoder
 ````
 ## WRANGLING
-# [2]: Load Dataset
+### [2]: Load Dataset
 ````python
 transaction_data = pd.read_csv("C:/Users/Asus/Downloads/Fraud (1).csv")
 ````
