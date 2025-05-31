@@ -16,7 +16,7 @@ Train machine learning models for classification.
 
 Evaluate model accuracy using standard metrics.
 
-## [1] Importing Required Libraries
+### [1] Importing Required Libraries
 ````python
 import numpy as np
 import pandas as pd
@@ -29,41 +29,41 @@ from sklearn.preprocessing import LabelEncoder
 ````python
 transaction_data = pd.read_csv("C:/Users/Asus/Downloads/Fraud (1).csv")
 ````
-## [3]: Preview the entire dataset (you might want to limit this for performance)
+### [3]: Preview the entire dataset (you might want to limit this for performance)
 ````python
 print(transaction_data)
 ````
 
-## [4]: Shape of the dataset
+### [4]: Shape of the dataset
 ````python
 print("Dataset Shape:", transaction_data.shape)
 ````
 
-## [5]: First 10 rows
+### [5]: First 10 rows
 ````python
 print(transaction_data.head(10))
 ````
 
-## [6]: Last 10 rows
+### [6]: Last 10 rows
 ````python
 print(transaction_data.tail(10))
 ````
 ## ANALYSING THE DATA
-## [7]: Dataset information
+### [7]: Dataset information
 ````python
 transaction_data.info()
 ````
 
-## [8]: Check for missing values
+### [8]: Check for missing values
 ````python
 print("Any Null Values? ", transaction_data.isnull().values.any())
 ````
 
-## [9]: Count of fraud and legit transactions
+### [9]: Count of fraud and legit transactions
 ````python
 print(transaction_data['isFraud'].value_counts())
 ````
-## [10]: Calculate % of legit and fraud transactions
+#3# [10]: Calculate % of legit and fraud transactions
 ````python
 legit = len(transaction_data[transaction_data.isFraud == 0])
 fraud = len(transaction_data[transaction_data.isFraud == 1])
@@ -76,7 +76,7 @@ print("Percentage of Legit transactions: {:.4f} %".format(legit_transaction_perc
 print("Percentage of Fraud transactions: {:.4f} %".format(fraud_transaction_percentage))
 ````
 ## DATA VISUALISATION
-## [12]: Visualization of transaction classes
+### [12]: Visualization of transaction classes
 ````python
 plt.figure(figsize=(6, 6))
 labels = ["Legit_Transactions", "Fraud_Transaction"]
@@ -87,7 +87,7 @@ plt.ylabel("Transaction Count")
 plt.xticks(range(2), labels)
 plt.show()
 ````
-## new_dataset=transaction_data.copy()
+### new_dataset=transaction_data.copy()
 ````python
 new_dataset=transaction_data.copy()
 new_dataset.head()
@@ -103,7 +103,7 @@ for i in new_List:
 new_dataset[i] = label_encode.fit_transform(new_dataset[i].astype(str))
 print (new_dataset.info())
 ````
-## Multicolinearity Checking
+### Multicolinearity Checking
 ````python
 from statsmodels.stats.outliers_influence import variance_inflation_factor
  def calc_vif(transaction_data):
@@ -124,7 +124,7 @@ x['newbalanceDest'],axis=1)
 new_dataset['name'] = new_dataset.apply(lambda x: x['nameOrig'] +␣
 x['nameDest'],axis=1)
 ````
-## dropping columns
+### dropping columns
 ````python
 new_dataset = new_dataset.
 drop(['oldbalanceOrg','newbalanceOrig','oldbalanceDest','newbalanceDest','nameOrig','nameDest'],calc_vif(new_dataset)
@@ -134,7 +134,7 @@ corr=new_dataset.corr()
 plt.figure(figsize=(6,6))
 sns.heatmap(corr,annot=True)
 ````
-## Model Building
+### Model Building
 ````python
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
@@ -152,7 +152,7 @@ random_state= 42)
 print("Shape of X_train: ", X_train.shape)
 print("Shape of X_test: ", X_test.shape)
 ````
-## Model Training
+### Model Training
 ````python
 decision_tree = DecisionTreeClassifier()
 decision_tree.fit(X_train, Y_train)
@@ -171,7 +171,7 @@ logistic_regression_score = logistic_regression.score(X_test, Y_test) * 100
 
 ````
 
-## Evaluation
+### Evaluation
 ````python
 print("Decision Tree Score: ", decision_tree_score)
 print("Random Forest Score: ", random_forest_score)
@@ -181,13 +181,13 @@ classification_report_dt = classification_report(Y_test, Y_pred_dt)
 print("Classification Report for Decision Tree:")
 print(classification_report_dt)
 ````
-## Random Forest
+### Random Forest
 ````python
 classification_report_rf = classification_report(Y_test, Y_pred_rf)
 print("Classification Report for Random Forest:")
 print(classification_report_rf)
 ````
-## Logistic Regression
+### Logistic Regression
 ````python
 classification_report_lr = classification_report(Y_test, Y_pred_lr)
 print("Classification Report for Logistic Regression:")
